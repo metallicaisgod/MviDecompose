@@ -1,6 +1,7 @@
 package com.example.mvidecomposetest.presentation
 
 import com.arkivanov.decompose.ComponentContext
+import com.arkivanov.mvikotlin.core.instancekeeper.getStore
 import com.arkivanov.mvikotlin.extensions.coroutines.labels
 import com.arkivanov.mvikotlin.extensions.coroutines.stateFlow
 import com.example.mvidecomposetest.core.componentScope
@@ -13,7 +14,8 @@ class DefaultAddContactComponent(
     private val onContactSaved: () -> Unit,
 ) : AddContactComponent, ComponentContext by componentContext {
 
-    private lateinit var store: AddContactStore
+    private val store: AddContactStore =
+        instanceKeeper.getStore { AddContactStoreFactory().create() }
 
     init {
         componentScope().launch {
@@ -35,7 +37,7 @@ class DefaultAddContactComponent(
     }
 
     override fun onPhoneChanged(phone: String) {
-        store.accept(AddContactStore.Intent.ChangeUserName(phone))
+        store.accept(AddContactStore.Intent.ChangePhone(phone))
     }
 
     override fun saveUser() {
