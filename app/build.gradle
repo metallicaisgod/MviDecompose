@@ -59,12 +59,15 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-    implementation("com.arkivanov.decompose:decompose:2.2.2")
-    implementation("com.arkivanov.decompose:extensions-compose-jetpack:2.2.2")
-    implementation("com.arkivanov.mvikotlin:mvikotlin:3.3.0")
-    implementation("com.arkivanov.mvikotlin:mvikotlin-main:3.3.0")
-    implementation("com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines:3.3.0")
+
+    def decompose_version = "2.2.2"
+    implementation("com.arkivanov.decompose:decompose:$decompose_version")
+    implementation("com.arkivanov.decompose:extensions-compose-jetpack:$decompose_version")
+
+    def mvikotlin_version = "3.3.0"
+    implementation("com.arkivanov.mvikotlin:mvikotlin:$mvikotlin_version")
+    implementation("com.arkivanov.mvikotlin:mvikotlin-main:$mvikotlin_version")
+    implementation("com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines:$mvikotlin_version")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
