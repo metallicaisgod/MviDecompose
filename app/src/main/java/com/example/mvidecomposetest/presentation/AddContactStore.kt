@@ -2,7 +2,8 @@ package com.example.mvidecomposetest.presentation
 
 import com.arkivanov.mvikotlin.core.store.Store
 
-interface AddContactStore : Store<AddContactStore.Intent, AddContactStore.State, AddContactStore.Label>{
+interface AddContactStore :
+    Store<AddContactStore.Intent, AddContactStore.State, AddContactStore.Label> {
 
     data class State(
         val userName: String,
@@ -11,15 +12,15 @@ interface AddContactStore : Store<AddContactStore.Intent, AddContactStore.State,
 
     sealed interface Label {
 
-        object ContactSaved: Label
+        object ContactSaved : Label
     }
 
     sealed interface Intent {
 
-        data class ChangeUserName(val userName: String): Intent
+        data class ChangeUserName(val userName: String) : Intent
 
-        data class ChangePhone(val phone: String): Intent
+        data class ChangePhone(val phone: String) : Intent
 
-        object SaveContact: Intent
+        object SaveContact : Intent
     }
 }
